@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+  	<link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="timecoding.js"></script>
+	<script src="http://popcornjs.org/code/dist/popcorn-complete.min.js"></script>
+	
+    <script>
+      // ensure the web page (DOM) has loaded
+      document.addEventListener("DOMContentLoaded", function () {
+		
+         // Create a popcorn instance by calling the Vimeo player plugin
+         var example = Popcorn.vimeo(
+         '#video',
+         'https://vimeo.com/89783253');
+		  	
+		for(var i = 0 ; i < timecodings.length ; i++)
+		{
+			var timecoding = timecodings[i];
+			example.footnote(
+			{
+                start: timecoding.start,
+                end: timecoding.end,
+                text: timecoding.text,
+                target: "wordriverdiv1",
+			}
+			);
+//			example.wordriver({
+  //              start: timecoding.start,
+    //            end: timecoding.end,
+      //          text: timecoding.text,
+        //        target: "wordriverdiv1",
+          //      color: "white"
+			//});
+		}
+         // play the video right away
+         example.play();
+		 
+      }, false);
+    </script>
+  </head>
+  <body>
+    <div id="video" style="width: 1600px; height: 900px;" ></div>
+    <div id="wordriverdiv1"></div>
+  </body>
+</html>
